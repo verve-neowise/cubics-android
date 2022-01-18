@@ -22,13 +22,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        requiredColor = colors.random()
-        binding.indicator.backgroundTintList = getColorStateList(this, requiredColor)
+
 
         val factor = binding.root.context.resources.displayMetrics.density
 
         binding.grid.rowCount = 3
         binding.grid.columnCount = 3
+
+        binding.reset.setOnClickListener {
+            randomize()
+        }
 
         for(i in 0..8) {
             val button = AppCompatButton(this)
@@ -37,14 +40,26 @@ class MainActivity : AppCompatActivity() {
             button.layoutParams = layoutParams
             button.requestLayout()
 
+            binding.grid.addView(button)
+        }
+
+        randomize()
+    }
+
+    private fun randomize() {
+
+        requiredColor = colors.random()
+        binding.indicator.backgroundTintList = getColorStateList(this, requiredColor)
+
+        val count = binding.grid.childCount
+        for (i in 0 until count) {
+            val button = binding.grid.getChildAt(i) as AppCompatButton
             button.randomColor(i)
 
             button.setOnClickListener {
                 button.randomColor(i)
                 check()
             }
-
-            binding.grid.addView(button)
         }
     }
 
@@ -67,6 +82,8 @@ https://<username>:<token>@<repo-url>
 
 Remote:
     https://verve-neowise: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@github.com/verve-neowise/cubics-android.git
+
+ https://verve-neowise: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@github.com/verve-neowise/cubics-android.git
 
 username:
 token:
