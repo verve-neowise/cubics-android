@@ -60,16 +60,3 @@ class MainActivity : AppCompatActivity() {
         this.backgroundTintList = getColorStateList(this@MainActivity, color)
     }
 }
-
-/*
-
-https://<username>:<token>@<repo-url>
-
-Remote:
-    https://verve-neowise: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@github.com/verve-neowise/cubics-android.git
-
-username:
-token:
-repo:
-
- */
