@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColorStateList
 import ohohohoh.xaxaxaxaxax.cubics.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class AsosiyActivity : AppCompatActivity() {
 
     private val colors = arrayOf(R.color.red, R.color.blue, R.color.green, R.color.yellow)
     private val buttons = Array(25) { 0 }
@@ -57,6 +56,6 @@ class MainActivity : AppCompatActivity() {
     private fun AppCompatButton.randomColor(i: Int) {
         val color = colors.random()
         buttons[i] = color
-        this.backgroundTintList = getColorStateList(this@MainActivity, color)
+        this.backgroundTintList = getColorStateList(this@AsosiyActivity, color)
     }
 }
